@@ -640,7 +640,7 @@ Example:
 
 curl.exe -X POST "http://localhost:8000/documents/upload" ^
 
-&#x20; -F "file=@test\_documents\\Document de proiect al unei firme.pdf"
+ -F "file=@test\_documents\\Document de proiect al unei firme.pdf"
 
 ```
 
@@ -654,13 +654,13 @@ Example response:
 
 {
 
-&#x20; "id": 8,
+ "id": 8,
 
-&#x20; "filename": "Document de proiect al unei firme.pdf",
+ "filename": "Document de proiect al unei firme.pdf",
 
-&#x20; "document\_type": "pdf",
+ "document\_type": "pdf",
 
-&#x20; "path": "/app/uploads/Document de proiect al unei firme.pdf"
+ "path": "/app/uploads/Document de proiect al unei firme.pdf"
 
 }
 
@@ -884,39 +884,39 @@ The complete document workflow is:
 
 ```text
 
-Upload
+   Upload
 
-  ↓
+     ↓
 
-Ingest
+   Ingest
 
-  ↓
+     ↓
 
-Chunking
+  Chunking
 
-  ↓
+     ↓
 
-Embed
+   Embed
 
-  ↓
+     ↓
 
 Vector Storage
 
-  ↓
+     ↓
 
 Semantic Search
 
-  ↓
+     ↓
 
 Context Retrieval
 
-  ↓
+     ↓
 
-LLM
+    LLM
 
-  ↓
+     ↓
 
-Answer
+   Answer
 
 ```
 
@@ -1396,41 +1396,41 @@ The core RAG pipeline is implemented and verified:
 
 Document Upload
 
-      ↓
+       ↓
 
 Document Ingestion
 
-      ↓
+       ↓
 
-Text Extraction
+ Text Extraction
 
-      ↓
+       ↓
 
-Chunking
+    Chunking
 
-      ↓
+       ↓
 
-Embeddings
+   Embeddings
 
-      ↓
+       ↓
 
-Vector Storage
+ Vector Storage
 
-      ↓
+       ↓
 
 Semantic Retrieval
 
-      ↓
+       ↓
 
 Context Generation
 
-      ↓
+       ↓
 
-LLM
+      LLM
 
-      ↓
+       ↓
 
-Generated Answer
+ Generated Answer
 
 ```
 
