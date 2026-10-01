@@ -66,83 +66,83 @@ The application follows a modular RAG architecture:
 
 ```text
 
-&#x20;                        ┌──────────────────┐
+                        ┌──────────────────┐
 
-&#x20;                        │      Client      │
+                        │      Client      │
 
-&#x20;                        └────────┬─────────┘
+                        └────────┬─────────┘
 
-&#x20;                                 │
+                                 │
 
-&#x20;                                 ▼
+                                 ▼
 
-&#x20;                        ┌──────────────────┐
+                        ┌──────────────────┐
 
-&#x20;                        │     FastAPI      │
+                        │     FastAPI      │
 
-&#x20;                        │       API        │
+                        │       API        │
 
-&#x20;                        └────────┬─────────┘
+                        └────────┬─────────┘
 
-&#x20;                                 │
+                                 │
 
-&#x20;            ┌────────────────────┼────────────────────┐
+            ┌────────────────────┼────────────────────┐
 
-&#x20;            │                    │                    │
+            │                    │                    │
 
-&#x20;            ▼                    ▼                    ▼
+            ▼                    ▼                    ▼
 
-&#x20;         Upload                Ingest               Query
+         Upload                Ingest               Query
 
-&#x20;            │                    │                    │
+            │                    │                    │
 
-&#x20;            │                    ▼                    │
+            │                    ▼                    │
 
-&#x20;            │              Text Extraction           │
+            │              Text Extraction           │
 
-&#x20;            │                    │                    │
+            │                    │                    │
 
-&#x20;            │                    ▼                    │
+            │                    ▼                    │
 
-&#x20;            │                Chunking                │
+            │                Chunking                │
 
-&#x20;            │                    │                    │
+            │                    │                    │
 
-&#x20;            │                    ▼                    │
+            │                    ▼                    │
 
-&#x20;            │               Embeddings               │
+            │               Embeddings               │
 
-&#x20;            │                    │                    │
+            │                    │                    │
 
-&#x20;            │                    ▼                    │
+            │                    ▼                    │
 
-&#x20;            │             PostgreSQL +                │
+            │             PostgreSQL +                │
 
-&#x20;            │               pgvector                  │
+            │               pgvector                  │
 
-&#x20;            │                         ▲               │
+            │                         ▲               │
 
-&#x20;            │                         │               │
+            │                         │               │
 
-&#x20;            │                  Vector Search ◄────────┘
+            │                  Vector Search ◄────────┘
 
-&#x20;            │                         │
+            │                         │
 
-&#x20;            │                         ▼
+            │                         ▼
 
-&#x20;            │                      Context
+            │                      Context
 
-&#x20;            │                         │
+            │                         │
 
-&#x20;            │                         ▼
+            │                         ▼
 
-&#x20;            │                       Ollama
+            │                       Ollama
 
-&#x20;            │                         │
+            │                         │
 
-&#x20;            │                         ▼
+            │                         ▼
 
-&#x20;            └────────────────────►  Answer
+            └────────────────────►  Answer
 
 ```
 
@@ -160,63 +160,63 @@ A document follows this processing pipeline:
 
 Document
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Upload
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Ingest
 
-&#x20;  │
+  │
 
-&#x20;  ├── Text extraction
+  ├── Text extraction
 
-&#x20;  ├── Page processing
+  ├── Page processing
 
-&#x20;  └── Chunk creation
+  └── Chunk creation
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Embed
 
-&#x20;  │
+  │
 
-&#x20;  └── Vector embeddings
+  └── Vector embeddings
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 PostgreSQL + pgvector
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Semantic Search
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Relevant Context
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Ollama / LLM
 
-&#x20;  │
+  │
 
-&#x20;  ▼
+  ▼
 
 Generated Answer
 
@@ -712,11 +712,11 @@ Example response:
 
 {
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "page\_count": 3,
+ "page\_count": 3,
 
-&#x20; "chunk\_count": 3
+ "chunk\_count": 3
 
 }
 
@@ -768,11 +768,11 @@ Example response:
 
 {
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "chunk\_count": 3,
+ "chunk\_count": 3,
 
-&#x20; "embedded": true
+ "embedded": true
 
 }
 
@@ -812,11 +812,11 @@ Example request:
 
 {
 
-&#x20; "question": "Care este bugetul aprobat pentru proiect?",
+ "question": "Care este bugetul aprobat pentru proiect?",
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "top\_k": 3
+ "top\_k": 3
 
 }
 
@@ -832,11 +832,11 @@ PowerShell example:
 
 $body = @{
 
-&#x20;   question = "Care este bugetul aprobat pentru proiect?"
+   question = "Care este bugetul aprobat pentru proiect?"
 
-&#x20;   document\_id = 8
+   document\_id = 8
 
-&#x20;   top\_k = 3
+   top\_k = 3
 
 } | ConvertTo-Json
 
@@ -844,21 +844,21 @@ $body = @{
 
 $response = Invoke-WebRequest `
 
-&#x20;   -Method POST `
+   -Method POST `
 
-&#x20;   http://localhost:8000/query `
+   http://localhost:8000/query `
 
-&#x20;   -ContentType "application/json; charset=utf-8" `
+   -ContentType "application/json; charset=utf-8" `
 
-&#x20;   -Body (\[System.Text.Encoding]::UTF8.GetBytes($body)) `
+   -Body (\[System.Text.Encoding]::UTF8.GetBytes($body)) `
 
-&#x20;   -UseBasicParsing
+   -UseBasicParsing
 
 
 
 \[System.Text.Encoding]::UTF8.GetString(
 
-&#x20;   $response.RawContentStream.ToArray()
+   $response.RawContentStream.ToArray()
 
 )
 
@@ -886,35 +886,35 @@ The complete document workflow is:
 
 Upload
 
-&#x20;  ↓
+  ↓
 
 Ingest
 
-&#x20;  ↓
+  ↓
 
 Chunking
 
-&#x20;  ↓
+  ↓
 
 Embed
 
-&#x20;  ↓
+  ↓
 
 Vector Storage
 
-&#x20;  ↓
+  ↓
 
 Semantic Search
 
-&#x20;  ↓
+  ↓
 
 Context Retrieval
 
-&#x20;  ↓
+  ↓
 
 LLM
 
-&#x20;  ↓
+  ↓
 
 Answer
 
@@ -930,7 +930,7 @@ Answer
 
 curl.exe -X POST "http://localhost:8000/documents/upload" ^
 
-&#x20; -F "file=@test\_documents\\Document de proiect al unei firme.pdf"
+ -F "file=@test\_documents\\Document de proiect al unei firme.pdf"
 
 ```
 
@@ -944,7 +944,7 @@ Assume the API returns:
 
 {
 
-&#x20; "id": 8
+ "id": 8
 
 }
 
@@ -972,11 +972,11 @@ Expected result:
 
 {
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "page\_count": 3,
+ "page\_count": 3,
 
-&#x20; "chunk\_count": 3
+ "chunk\_count": 3
 
 }
 
@@ -1004,11 +1004,11 @@ Expected result:
 
 {
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "chunk\_count": 3,
+ "chunk\_count": 3,
 
-&#x20; "embedded": true
+ "embedded": true
 
 }
 
@@ -1024,11 +1024,11 @@ Expected result:
 
 {
 
-&#x20; "question": "Care este bugetul aprobat pentru proiect?",
+ "question": "Care este bugetul aprobat pentru proiect?",
 
-&#x20; "document\_id": 8,
+ "document\_id": 8,
 
-&#x20; "top\_k": 3
+ "top\_k": 3
 
 }
 
@@ -1082,31 +1082,31 @@ A final end-to-end test was performed using a document from `test\_documents`:
 
 PDF
 
-&#x20;↓
+↓
 
 Upload
 
-&#x20;↓
+↓
 
 Ingest
 
-&#x20;↓
+↓
 
 3 pages
 
-&#x20;↓
+↓
 
 3 chunks
 
-&#x20;↓
+↓
 
 Embed
 
-&#x20;↓
+↓
 
 3 embeddings
 
-&#x20;↓
+↓
 
 Ready for RAG
 
@@ -1396,39 +1396,39 @@ The core RAG pipeline is implemented and verified:
 
 Document Upload
 
-&#x20;      ↓
+      ↓
 
 Document Ingestion
 
-&#x20;      ↓
+      ↓
 
 Text Extraction
 
-&#x20;      ↓
+      ↓
 
 Chunking
 
-&#x20;      ↓
+      ↓
 
 Embeddings
 
-&#x20;      ↓
+      ↓
 
 Vector Storage
 
-&#x20;      ↓
+      ↓
 
 Semantic Retrieval
 
-&#x20;      ↓
+      ↓
 
 Context Generation
 
-&#x20;      ↓
+      ↓
 
 LLM
 
-&#x20;      ↓
+      ↓
 
 Generated Answer
 
